@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: black; text-align: center;">
+     <div >
+       <h1 style="color: white; margin-top: 300px;">THOUGHT OF THE DAY</h1>
+        <button onclick="gen()" style="background-color: rgb(83, 83, 251); border-radius: 25px; width: 100px; height: 50px;">GENERATE</button>
+       <div style=" height: 300px; width: 500px; border: 1px orange dashed;  position: relative; left: 33%; margin-top: 20px;">
+          <h3 id="output" style="color: white;"></h3>
+        
+       </div>
+     </div>
+</body>
+
+
+
+<script>
+
+const gen=()=>{
+    fetch('https://dummyjson.com/quotes').then(value=>{
+       // console.log(value);
+        value.json().then(response=>{
+
+            
+            const res=response.quotes
+            const rand= Math.floor(Math.random()*res.length)
+            output.innerHTML=res[rand].quote
+             console.log(res[rand].quote);
+            // output.innerHTML=res[1].quote
+            
+           
+        })
+    })
+
+
+
+}
+
+
+ 
+</script>
+</html>
